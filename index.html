@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 80vh;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #button-container {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="image-container">
+        <img id="displayed-image" src="" alt="Displayed Image">
+    </div>
+    <div id="button-container">
+        <button onclick="showRandomImage()">Show Random Image</button>
+    </div>
+
+    <script>
+        function showRandomImage() {
+            var min = 3;
+            var max = 122;
+            var randomIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+            var imageUrl = 'export/card_' + randomIndex + '.png';
+            document.getElementById('displayed-image').src = imageUrl;
+        }
+    </script>
+</body>
+
+</html>
